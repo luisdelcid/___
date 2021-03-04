@@ -50,7 +50,7 @@ if(!class_exists('___Loader')){
                 }
             }
             if(is_admin()){
-                ___puc_build_update_checker('https://github.com/luisdelcid/___', $file, '___');
+                ___puc_build('https://github.com/luisdelcid/___', $file, '___');
                 ___enqueue_functions('admin');
             } else {
                 ___enqueue_functions('front-end');

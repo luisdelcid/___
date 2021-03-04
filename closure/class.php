@@ -5,11 +5,11 @@ if(!class_exists('___Closure')){
 
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         //
-        // public
+        // private
         //
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-        public static function closure(){
+        private static function class(){
             if(class_exists('Opis\Closure\SerializableClosure')){
                 return true;
             }
@@ -29,6 +29,10 @@ if(!class_exists('___Closure')){
         }
 
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        //
+        // public
+        //
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         public static function closure_md5($data, $spl_object_hash = false){
             $serialized = self::closure_serialize($data);
@@ -47,7 +51,7 @@ if(!class_exists('___Closure')){
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         public static function closure_serialize($data){
-            $require = self::closure();
+            $require = self::class();
             if(is_wp_error($require)){
                 return $require;
             }

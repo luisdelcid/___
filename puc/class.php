@@ -5,11 +5,11 @@ if(!class_exists('___PUC')){
 
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         //
-        // public
+        // private
         //
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-        public static function puc(){
+        private static function class(){
             if(class_exists('Puc_v4_Factory')){
                 return true;
             }
@@ -29,9 +29,13 @@ if(!class_exists('___PUC')){
         }
 
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        //
+        // public
+        //
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         public static function build(){
-            $require = self::puc();
+            $require = self::class();
             if(is_wp_error($require)){
                 return $require;
             }

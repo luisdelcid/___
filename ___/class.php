@@ -508,9 +508,9 @@ if(!class_exists('___')){
                     return false;
                 }
             } else {
-                $data = (int) $code;
+                $data = (int) $data;
             }
-            return ($code >= 200 and $code < 300);
+            return ($data >= 200 and $data < 300);
         }
 
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

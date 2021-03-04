@@ -51,9 +51,9 @@ if(!class_exists('___Loader')){
             }
             if(is_admin()){
                 ___puc_build('https://github.com/luisdelcid/___', $file, '___');
-                ___enqueue_functions('admin');
+                //___enqueue_functions('admin');
             } else {
-                ___enqueue_functions('front-end');
+                //___enqueue_functions('front-end');
             }
             ___on('after_setup_theme', function(){
                 $file = get_stylesheet_directory() . '/___.php';

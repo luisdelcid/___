@@ -12,6 +12,15 @@ if(!function_exists('___zoom')){
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+if(!function_exists('___zoom_auth')){
+	function ___zoom_auth(){
+        ___zoom();
+        return call_user_func_array(['___Zoom', 'auth'], func_get_args());
+	}
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 if(!function_exists('___zoom_delete')){
 	function ___zoom_delete(){
         ___zoom();

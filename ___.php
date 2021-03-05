@@ -2,7 +2,7 @@
 /*
 Author: Luis del Cid
 Author URI: https://github.com/luisdelcid
-Description: A collection of useful functions for your WordPress theme's functions.php.
+Description: A collection of useful functions for your WordPress theme's functions.php
 Domain Path:
 License: GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -10,7 +10,7 @@ Network: true
 Plugin Name: ___
 Plugin URI: https://github.com/luisdelcid/___
 Text Domain: ___
-Version: 0.3.3
+Version: 0.3.4
 */
 
 if(defined('ABSPATH')){

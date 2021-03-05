@@ -147,9 +147,9 @@ jQuery('.wpcf7').on('wpcf7mailsent wpcf7mailfailed', function(event){
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         public static function wpcf7_editor_panels($panels){
-            if(empty($panels['___'])){
+            if(empty($panels['panel___'])){
                 $active_tab = count($panels);
-                $panels['___'] = [
+                $panels['panel___'] = [
                     'callback' => function($contact_form) use($active_tab){
                         $html = '<h2>' . __('Edit') . '</h2>';
                         $html .= '<fieldset>';

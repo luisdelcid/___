@@ -141,6 +141,7 @@ jQuery('.wpcf7').on('wpcf7mailsent wpcf7mailfailed', function(event){
 	}
 });";
         		wp_add_inline_script('contact-form-7', $data);
+                wp_enqueue_script('jquery');
         	}
         }
 

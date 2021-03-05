@@ -173,19 +173,5 @@ jQuery('.wpcf7').on('wpcf7mailsent wpcf7mailfailed', function(event){
 
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-        public static function wpcf7_password_validation_filter($result, $tag){
-            $name = $tag->name;
-            $value = isset($_POST[$name]) ? trim(wp_unslash(strtr((string) $_POST[$name], "\n", ' '))) : '';
-            if('password' == $tag->basetype){
-                if($tag->is_required() and '' === $value){
-                    $result->invalidate($tag, wpcf7_get_message('invalid_required'));
-                }
-            }
-            $result = wpcf7_text_validation_filter($result, $tag);
-            return $result;
-        }
-
-        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
     }
 }

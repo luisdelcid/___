@@ -1,0 +1,84 @@
+span.wpcf7-list-item.custom-control {
+	display: block;
+	margin: 0;
+}
+span.wpcf7-list-item.custom-control-inline {
+	display: -ms-inline-flexbox;
+    display: inline-flex;
+    margin: 0 1rem 0 0;
+}
+.wpcf7 form .wpcf7-response-output {
+	margin: 0 0 1rem;
+	padding: 1rem;
+	border: 1px solid #b6d4fe; /* Blue */
+	border-radius: 0.25rem;
+	color: #084298;
+    background-color: #cfe2ff;
+	position: relative;
+}
+.wpcf7 form.sent .wpcf7-response-output {
+	color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc; /* Green */
+}
+.wpcf7 form.failed .wpcf7-response-output,
+.wpcf7 form.aborted .wpcf7-response-output {
+	color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7; /* Red */
+}
+.wpcf7 form.spam .wpcf7-response-output {
+	color: #41464b;
+    background-color: #e2e3e5;
+    border-color: #d3d6d8; /* Gray */
+}
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output {
+	color: #664d03;
+    background-color: #fff3cd;
+    border-color: #ffecb5; /* Yellow */
+}
+.wpcf7-not-valid-tip {
+	color: #dc3545;
+	font-size: 80%;
+	margin-top: .25rem;
+	width: 100%;
+}
+.form-control.wpcf7-not-valid {
+	border-color: #dc3545;
+	padding-right: calc(1.5em + 0.75rem);
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+	background-repeat: no-repeat;
+	background-position: right calc(0.375em + 0.1875rem) center;
+	background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+.form-control.wpcf7-not-valid:focus {
+	border-color: #dc3545;
+	box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+textarea.form-control.wpcf7-not-valid {
+	padding-right: calc(1.5em + 0.75rem);
+	background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem);
+}
+.custom-select.wpcf7-not-valid {
+	border-color: #dc3545;
+	padding-right: calc(0.75em + 2.3125rem);
+	background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right 0.75rem center/8px 10px no-repeat, #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e") center right 1.75rem/calc(0.75em + 0.375rem) calc(0.75em + 0.375rem) no-repeat;
+}
+.custom-select.wpcf7-not-valid:focus {
+	border-color: #dc3545;
+	box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+.custom-file-input.wpcf7-not-valid ~ .custom-file-label {
+	border-color: #dc3545;
+}
+.custom-file-input.wpcf7-not-valid:focus ~ .custom-file-label {
+	border-color: #dc3545;
+	box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+.wpcf7-not-valid .custom-control-input ~ .custom-control-label {
+	color: #dc3545;
+}
+.wpcf7-not-valid .custom-control-input ~ .custom-control-label::before {
+	border-color: #dc3545;
+}

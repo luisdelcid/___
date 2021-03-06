@@ -26,6 +26,7 @@ if(!class_exists('___Closure')){
             }
             require_once($expected . '/autoload.php');
             return true;
+            //return ___require('Opis\Closure\SerializableClosure', 'github/opis/closure/3.6.1', 'closure-3.6.1', 'autoload.php', 'https://github.com/opis/closure/archive/3.6.1.zip');
         }
 
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -9,6 +9,13 @@ if(!class_exists('___CF7_Signup')){
         //
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+        public static function contact_form_types($contact_form_types){
+            $contact_form_types['signup'] = __('Signup');
+            return $contact_form_types;
+        }
+
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
         public static function do_shortcode_tag($output, $tag, $attr, $m){
             if('contact-form-7' != $tag){
                 return $output;

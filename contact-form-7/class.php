@@ -62,39 +62,43 @@ if(!class_exists('___CF7')){
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         public static function rwmb_meta_boxes($meta_boxes){
-            global $pagenow;
-    		$fields = [
-    			[
-    				'id' => '___contact_form_type',
-    				'name' => __('Type'),
-    				'options' => [
-    					'contact_form' => __('Contact Form', 'contact-form-7'),
-    					'login' => __('Log in'),
-    					'signup' => __('Signup'),
-    				],
-    				'std' => 'contact_form',
-    				'type' => 'radio',
-    			],
-    			[
-    				'desc' => 'Redirect URL, to which users will be redirected after successful submission.',
-    				'id' => '___redirect',
-    				'name' => 'Redirect URL',
-    				'type' => 'url',
-    				'visible' => ['___contact_form_type', 'contact_form'],
-    			],
-    		];
-    		if(self::is_edit()){
-    			$fields[] = [
-    				'std' => '<style>#minor-publishing, .page-title-action, #delete-action { display: none !important; } #major-publishing-actions { border-top: 0 !important; }</style><a href="' . admin_url('admin.php?page=wpcf7&post=' . $_GET['post'] . '&action=edit&active-tab=' . (isset($_GET['active-tab']) ? $_GET['active-tab'] : '')) . '">&larr; ' . __('Go back') . '</a>',
-    				'type' => 'custom_html',
-    			];
-    		}
     		$meta_boxes[] = [
-    			'fields' => $fields,
+    			'fields' => [
+        			[
+        				'id' => '___contact_form_type',
+        				'name' => __('Type'),
+        				'options' => apply_filters('___contact_form_types', [
+        					'contact_form' => __('Contact Form', 'contact-form-7'),
+        				]),
+        				'std' => 'contact_form',
+        				'type' => 'radio',
+        			],
+        			[
+        				'desc' => 'Redirect URL, to which users will be redirected after successful submission.',
+        				'id' => '___redirect',
+        				'name' => 'Redirect URL',
+        				'type' => 'url',
+        				'visible' => ['___contact_form_type', 'contact_form'],
+        			],
+        		],
     			'id' => '___',
     			'post_types' => 'wpcf7_contact_form',
     			'title' => '___',
     		];
+            if(self::is_edit()){
+                $meta_boxes[] = [
+                    'context' => 'side',
+        			'fields' => [
+                        [
+            				'std' => '<style>#minor-publishing, .page-title-action, #delete-action { display: none !important; } #major-publishing-actions { border-top: 0 !important; }</style><a href="' . admin_url('admin.php?page=wpcf7&post=' . $_GET['post'] . '&action=edit&active-tab=' . (isset($_GET['active-tab']) ? $_GET['active-tab'] : '')) . '">&larr; ' . __('Go back') . '</a>',
+            				'type' => 'custom_html',
+            			]
+                    ],
+        			'id' => '___back',
+        			'post_types' => 'wpcf7_contact_form',
+        			'title' => __('Go back'),
+        		];
+    		}
             return $meta_boxes;
         }
 

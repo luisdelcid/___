@@ -435,6 +435,37 @@ if(!class_exists('___')){
 
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+        public static function require($class_name, $basedir, $expected, $files, $url){
+            if(class_exists($class_name)){
+                return true;
+            }
+            $tmpdir = ___upload_tmpdir();
+            $dir = $tmpdir . '/' . ltrim(str_replace($tmpdir, '', untrailingslashit($basedir)), '/');
+            $expected = $dir . '/' . ltrim(str_replace($dir, '', untrailingslashit($expected)), '/');
+            if(@is_dir($expected)){
+                foreach((array) $files as $file){
+                    $file = $expected . '/' . basename($file);
+                    if(file_exists($file)){
+                        require_once($file);
+                    }
+                }
+                return true;
+            }
+            $result = ___download_and_unzip($url, $dir);
+            if(is_wp_error($result)){
+                return $result;
+            }
+            foreach((array) $files as $file){
+                $file = $expected . '/' . basename($file);
+                if(file_exists($file)){
+                    require_once($file);
+                }
+            }
+            return true;
+        }
+
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
         public static function response($response){
             if(!class_exists('___Response')){
                 require_once(plugin_dir_path(__FILE__) . 'class-response.php');

@@ -45,6 +45,7 @@ if(!function_exists('___cf7_login')){
             require_once(plugin_dir_path(__FILE__) . 'class-login.php');
         }
         ___cf7();
+        ___one('___contact_form_types', ['___CF7_Login', 'contact_form_types']);
         ___one('do_shortcode_tag', ['___CF7_Login', 'do_shortcode_tag'], 10, 4);
         ___one('rwmb_meta_boxes', ['___CF7_Login', 'rwmb_meta_boxes']);
         ___one('wpcf7_before_send_mail', ['___CF7_Login', 'wpcf7_before_send_mail'], 10, 3);
@@ -62,6 +63,7 @@ if(!function_exists('___cf7_signup')){
             require_once(plugin_dir_path(__FILE__) . 'class-signup.php');
         }
         ___cf7();
+        ___one('___contact_form_types', ['___CF7_Signup', 'contact_form_types']);
         ___one('do_shortcode_tag', ['___CF7_Signup', 'do_shortcode_tag'], 10, 4);
         ___one('rwmb_meta_boxes', ['___CF7_Signup', 'rwmb_meta_boxes']);
         ___one('wpcf7_before_send_mail', ['___CF7_Signup', 'wpcf7_before_send_mail'], 10, 3);

@@ -291,6 +291,15 @@ if(!function_exists('___request')){
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+if(!function_exists('___require')){
+    function ___require(){
+        ___();
+		return call_user_func_array(['___', 'require'], func_get_args());
+    }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 if(!function_exists('___response')){
     function ___response(){
         ___();

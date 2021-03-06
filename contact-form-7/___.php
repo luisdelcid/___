@@ -28,7 +28,7 @@ if(!function_exists('___cf7_floating_labels')){
         } else {
             ___one('plugins_loaded', ['___CF7_Floating_Labels', 'plugins_loaded']);
         }
-        ___one('wp_enqueue_scripts', ['___CF7_Floating_Labels', 'enqueue_scripts']);
+        ___one('wp_enqueue_scripts', ['___CF7_Floating_Labels', 'wp_enqueue_scripts']);
         ___one('wpcf7_autop_or_not', '__return_false');
         ___one('wpcf7_init', ['___CF7_Floating_Labels', 'wpcf7_init']);
         ___one('wpcf7_validate_password', ['___CF7_Floating_Labels', 'wpcf7_validate_password'], 10, 2);

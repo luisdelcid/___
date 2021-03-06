@@ -22,7 +22,7 @@ if(!class_exists('___CF7_Floating_Labels')){
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         private static function checkbox($html = '', $tag = null){
-            $html = str_get_html($html);
+            $html = ___simple_html_dom_str_get_html($html);
 			$type = (in_array($tag->basetype, ['checkbox', 'radio']) ? $tag->basetype : 'checkbox');
 			foreach($html->find('.wpcf7-list-item') as $li){
 				$li->addClass('custom-control custom-' . $type);
@@ -44,7 +44,7 @@ if(!class_exists('___CF7_Floating_Labels')){
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         private static function file($html = '', $tag = null){
-            $html = str_get_html($html);
+            $html = ___simple_html_dom_str_get_html($html);
             $wrapper = $html->find('.wpcf7-form-control-wrap', 0);
             $wrapper->addClass('custom-file');
             $input = $wrapper->find('input', 0);
@@ -76,8 +76,8 @@ if(!class_exists('___CF7_Floating_Labels')){
 
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-        private static function is_text($basetype){
-			return in_array($basetype, self::text_fields());
+        private static function is_text($type){
+			return in_array($type, self::text_fields());
         }
 
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -96,7 +96,7 @@ if(!class_exists('___CF7_Floating_Labels')){
 
         private static function placeholder($tag = null, $fallback = ''){
             switch(true){
-                case is_text($tag->basetype):
+                case self::is_text($tag->type):
                     if($tag->has_option('placeholder') or $tag->has_option('watermark')){
                         if($tag->values){
                             return reset($tag->values);
@@ -117,7 +117,7 @@ if(!class_exists('___CF7_Floating_Labels')){
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         private static function select($html = '', $tag = null){
-            $html = str_get_html($html);
+            $html = ___simple_html_dom_str_get_html($html);
             $floating_labels = self::floating_labels($tag);
             $placeholder = self::placeholder($tag);
             if($floating_labels and $placeholder){
@@ -155,7 +155,7 @@ if(!class_exists('___CF7_Floating_Labels')){
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         private static function text($html = '', $tag = null){
-            $html = str_get_html($html);
+            $html = ___simple_html_dom_str_get_html($html);
             $floating_labels = self::floating_labels($tag);
             $placeholder = self::placeholder($tag);
             if($floating_labels and $placeholder){
@@ -179,13 +179,13 @@ if(!class_exists('___CF7_Floating_Labels')){
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         private static function text_fields(){
-			return ['text', 'email', 'url', 'tel', 'textarea', 'password', 'password*'];
+			return ['text', 'text*', 'email', 'email*', 'url', 'url*', 'tel', 'tel*', 'textarea', 'textarea*', 'password', 'password*'];
         }
 
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         private static function textarea($html = '', $tag = null){
-            $html = str_get_html($html);
+            $html = ___simple_html_dom_str_get_html($html);
             $floating_labels = self::floating_labels($tag);
             $placeholder = self::placeholder($tag);
             if($floating_labels and $placeholder){
@@ -214,7 +214,7 @@ if(!class_exists('___CF7_Floating_Labels')){
         //
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-        public static function plugins(){
+        public static function plugins_loaded(){
             ___off('wpcf7_init', 'wpcf7_add_form_tag_acceptance');
             ___off('wpcf7_init', 'wpcf7_add_form_tag_checkbox');
             ___off('wpcf7_init', 'wpcf7_add_form_tag_date');
@@ -296,7 +296,7 @@ if(!class_exists('___CF7_Floating_Labels')){
 
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-        public static function wpcf7_password_validation_filter($result, $tag){
+        public static function wpcf7_validate_password($result, $tag){
             $name = $tag->name;
             $value = isset($_POST[$name]) ? trim(wp_unslash(strtr((string) $_POST[$name], "\n", ' '))) : '';
             if('password' == $tag->basetype){

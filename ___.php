@@ -10,7 +10,7 @@ Network: true
 Plugin Name: ___
 Plugin URI: https://github.com/luisdelcid/___
 Text Domain: ___
-Version: 0.3.5.1
+Version: 0.3.5.2
 */
 
 if(defined('ABSPATH')){

@@ -332,7 +332,7 @@ if(!class_exists('___')){
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         public static function off($tag, $function_to_remove, $priority = 10){
-            return remove_filter($tag, $function_to_add, $priority);
+            return remove_filter($tag, $function_to_remove, $priority);
         }
 
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

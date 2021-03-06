@@ -90,7 +90,7 @@ if(!class_exists('___CF7')){
                     'context' => 'side',
         			'fields' => [
                         [
-            				'std' => '<style>#minor-publishing, .page-title-action, #delete-action { display: none !important; } #major-publishing-actions { border-top: 0 !important; }</style><a href="' . admin_url('admin.php?page=wpcf7&post=' . $_GET['post'] . '&action=edit&active-tab=' . (isset($_GET['active-tab']) ? $_GET['active-tab'] : '')) . '">' . sprintf(_x('&larr; Go to %s', 'site'), get_the_title($_GET['post'])) . '</a>',
+            				'std' => '<style>#minor-publishing, .page-title-action, #delete-action { display: none !important; } #major-publishing-actions { border-top: 0 !important; }</style><a href="' . admin_url('admin.php?page=wpcf7&post=' . $_GET['post'] . '&action=edit&active-tab=' . (isset($_GET['active-tab']) ? $_GET['active-tab'] : '')) . '">' . str_replace('&larr; ', '', sprintf(_x('&larr; Go to %s', 'site'), get_the_title($_GET['post']))) . '</a>',
             				'type' => 'custom_html',
             			]
                     ],
@@ -162,7 +162,7 @@ jQuery('.wpcf7').on('wpcf7mailsent wpcf7mailfailed', function(event){
                         $html .= '<legend>';
                         if($contact_form->id()){
         					$nonce_url = wp_nonce_url(admin_url('post.php?post=' . $contact_form->id() . '&action=edit&active-tab=' . $active_tab), '___edit_' . $contact_form->id());
-                            $html .= '<a href="' . $nonce_url . '">' . __('Edit This') . ' &rarr;</a>';
+                            $html .= '<a href="' . $nonce_url . '">' . __('Edit This') . '</a>';
                         } else {
                             $html .= __('Save Changes') . ' &rarr;';
                         }

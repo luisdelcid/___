@@ -90,7 +90,7 @@ if(!class_exists('___CF7')){
                     'context' => 'side',
         			'fields' => [
                         [
-            				'std' => '<style>#minor-publishing, .page-title-action, #delete-action { display: none !important; } #major-publishing-actions { border-top: 0 !important; }</style><a href="' . admin_url('admin.php?page=wpcf7&post=' . $_GET['post'] . '&action=edit&active-tab=' . (isset($_GET['active-tab']) ? $_GET['active-tab'] : '')) . '">&larr; ' . __('Go back') . '</a>',
+            				'std' => '<style>#minor-publishing, .page-title-action, #delete-action { display: none !important; } #major-publishing-actions { border-top: 0 !important; }</style><a href="' . admin_url('admin.php?page=wpcf7&post=' . $_GET['post'] . '&action=edit&active-tab=' . (isset($_GET['active-tab']) ? $_GET['active-tab'] : '')) . '">' . str_replace('&larr; ', '', sprintf(_x('&larr; Go to %s', 'site'), get_the_title($_GET['post']))) . '</a>',
             				'type' => 'custom_html',
             			]
                     ],
